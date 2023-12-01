@@ -26,32 +26,30 @@ const Login = () => {
       <div>
         <form onSubmit={handleSubmit(submitHandler)}>
           <div className="inputs">
-            <label>
-              USERNAME
-              <input
-                id="username"
-                type="text"
-                placeholder="workintech"
-                {...register("username", {
-                  required: "This field is required",
-                })}
-              ></input>
-            </label>
+            <label htmlFor="username">USERNAME</label>
+            <input
+              id="username"
+              type="text"
+              placeholder="workintech"
+              {...register("username", {
+                required: "This field is required",
+              })}
+            ></input>
           </div>
           <div className="inputs">
-            <label>
-              PASSWORD
-              <input
-                id="password"
-                type="text"
-                placeholder="wecandoit"
-                {...register("password", {
-                  required: "This field is required",
-                })}
-              ></input>
-            </label>
+            <label htmlFor="password">PASSWORD </label>
+            <input
+              id="password"
+              type="text"
+              placeholder="wecandoit"
+              {...register("password", {
+                required: "This field is required",
+              })}
+            ></input>
           </div>
-          <button type="submit">SUBMIT</button>
+          <button className="submit-button" type="submit">
+            SUBMIT
+          </button>
         </form>
       </div>
     </>

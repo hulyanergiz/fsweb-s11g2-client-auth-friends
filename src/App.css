@@ -1,3 +1,62 @@
+* {
+  box-sizing: border-box;
+  --containerWidth: 500px;
+  --commonFontSize: 1.5rem;
+}
 .App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-weight: 900;
   text-align: center;
+}
+
+h1,
+h2 {
+  font-weight: 900;
+  margin: 0;
+}
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.inputs label {
+  font-size: var(--commonFontSize);
+}
+
+.inputs input {
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  padding: 2rem;
+  font-size: var(--commonFontSize);
+  margin: auto;
+}
+.form {
+  width: var(--containerWidth);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.submit-button {
+  background-color: black;
+  color: white;
+  width: 350px;
+  padding: 2rem 0;
+  font-size: var(--commonFontSize);
+  cursor: pointer;
+  font-weight: 900;
 }
