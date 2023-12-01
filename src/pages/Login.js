@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useForm } from "react-hook-form";
 const Login = () => {
   const {
@@ -8,7 +9,16 @@ const Login = () => {
     defaultValues: { username: "workintech", password: "wecandoit" },
   });
   const submitHandler = (data) => {
-    console.log(data);
+    console.log("sent data", data);
+    axios
+      .post("http://localhost:9000/api/login", data)
+      .then(function (response) {
+        console.log("received data", response);
+        localStorage.setItem("token", JSON.stringify(response.data.token));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   return (
     <>
