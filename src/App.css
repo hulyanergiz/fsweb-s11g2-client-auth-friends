@@ -97,3 +97,21 @@ h2 {
   cursor: pointer;
   font-weight: 900;
 }
+.form .error {
+  background-color: tomato;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: white;
+  font-size: var(--commonFontSize);
+}
+
+.list {
+  font-size: var(--commonFontSize);
+}
+
+li {
+  list-style-type: none;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
