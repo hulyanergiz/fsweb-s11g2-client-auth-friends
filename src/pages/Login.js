@@ -1,7 +1,9 @@
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import { useEffect } from "react";
 const Login = () => {
+  const { loginUserAPI, isLoggedIn, loginError } = useAuth();
   const {
     register,
     handleSubmit,
@@ -12,19 +14,15 @@ const Login = () => {
   const history = useHistory();
   const submitHandler = (data) => {
     console.log("sent data", data);
-    axios
-      .post("http://localhost:9000/api/login", data)
-      .then(function (response) {
-        console.log("received data", response);
-        localStorage.setItem("token", JSON.stringify(response.data.token));
-        history.push("/friends");
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    loginUserAPI(data);
   };
+  useEffect(() => {
+    if (isLoggedIn()) {
+      history.push("/friends");
+    }
+  }, [isLoggedIn()]);
   return (
-    <>
+    <div>
       <h2>LOGIN</h2>
       <div>
         <form onSubmit={handleSubmit(submitHandler)}>
@@ -55,7 +53,7 @@ const Login = () => {
           </button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 export default Login;

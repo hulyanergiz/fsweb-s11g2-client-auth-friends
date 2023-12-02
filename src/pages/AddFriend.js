@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useAuth } from "../contexts/AuthContext";
 
 const AddFriend = () => {
+  const { axioWithAuthInstance } = useAuth();
   const {
     register,
     handleSubmit,
@@ -10,8 +12,8 @@ const AddFriend = () => {
 
   const submitHandler = (data) => {
     console.log(data);
-    axios
-      .post("http://localhost:9000/api/friends", data)
+    axioWithAuthInstance
+      .post("friends", data)
       .then((res) => {
         console.log("add friends res", res);
       })
