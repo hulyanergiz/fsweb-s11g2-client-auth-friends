@@ -22,13 +22,11 @@ const FriendsList = () => {
       <h2>FRIEND LIST</h2>
       <ul className="list">
         {friends.map((friend, key) => (
-      <ul>
-        {friends.map((friend) => {
+          <NavLink key={key} to={`/friends/${friend.id}`}>
             <li>
               -{friend.name}-{friend.email}
             </li>
-          </li>;
-        })}
+          </NavLink>
         ))}
       </ul>
     </div>

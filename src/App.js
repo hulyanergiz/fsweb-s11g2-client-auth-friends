@@ -5,6 +5,7 @@ import FriendsList from "./pages/FriendsList";
 import AddFriend from "./pages/AddFriend";
 import NavigationBar from "./pages/NavigationBar";
 import PrivateRoute from "./pages/PrivateRoute";
+import Friend from "./pages/Friend";
 
 function App() {
   return (
@@ -24,7 +25,9 @@ function App() {
           <PrivateRoute path="/friends/add">
             <AddFriend />
           </PrivateRoute>
-          </Route>
+          <PrivateRoute path="/friends/:friendID">
+            <Friend />
+          </PrivateRoute>
         </Switch>
       </div>
     </div>
