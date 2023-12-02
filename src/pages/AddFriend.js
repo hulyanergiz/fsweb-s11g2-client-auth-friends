@@ -20,7 +20,7 @@ const AddFriend = () => {
       });
   };
   return (
-    <>
+    <div>
       <h2>ADD FRIEND</h2>
       <form onSubmit={handleSubmit(submitHandler)}>
         <div className="inputs">
@@ -45,7 +45,7 @@ const AddFriend = () => {
           SUBMIT
         </button>
       </form>
-    </>
+    </div>
   );
 };
 export default AddFriend;
