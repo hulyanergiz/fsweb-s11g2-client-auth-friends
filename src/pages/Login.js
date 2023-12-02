@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 const Login = () => {
   const {
     register,
@@ -8,6 +9,7 @@ const Login = () => {
   } = useForm({
     defaultValues: { username: "workintech", password: "wecandoit" },
   });
+  const history = useHistory();
   const submitHandler = (data) => {
     console.log("sent data", data);
     axios
@@ -15,6 +17,7 @@ const Login = () => {
       .then(function (response) {
         console.log("received data", response);
         localStorage.setItem("token", JSON.stringify(response.data.token));
+        history.push("/friends");
       })
       .catch(function (error) {
         console.log(error);
