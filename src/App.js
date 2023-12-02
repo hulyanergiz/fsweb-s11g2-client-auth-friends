@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import FriendsList from "./pages/FriendsList";
 import AddFriend from "./pages/AddFriend";
 import NavigationBar from "./pages/NavigationBar";
+import PrivateRoute from "./pages/PrivateRoute";
 
 function App() {
   return (
@@ -17,11 +18,12 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/friends">
+          <PrivateRoute exact path="/friends">
             <FriendsList />
-          </Route>
-          <Route path="/friends/add">
+          </PrivateRoute>
+          <PrivateRoute path="/friends/add">
             <AddFriend />
+          </PrivateRoute>
           </Route>
         </Switch>
       </div>
