@@ -36,6 +36,9 @@ const Login = () => {
                 required: "This field is required",
               })}
             ></input>
+            {errors.username && (
+              <div className="error">{errors.username.message}</div>
+            )}
           </div>
           <div className="inputs">
             <label htmlFor="password">PASSWORD </label>
@@ -47,7 +50,11 @@ const Login = () => {
                 required: "This field is required",
               })}
             ></input>
+            {errors.password && (
+              <div className="error">{errors.password.message}</div>
+            )}
           </div>
+          {loginError && <div className="error">{loginError}</div>}
           <button className="submit-button" type="submit">
             SUBMIT
           </button>
